@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yukiの自己紹介</title>
+  <style>
+    body{
+      background-color: lightblue;
+    }
+    table, td, th{
+      border: solid 1px gray;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://avatars2.githubusercontent.com/u/42610542?s=460&u=ea8214372908806c7eead6694c498717e27adcd7&v=4" alt="アイコン" width="300px">
+  <h1>Yuki</h1>
+  <h3>わたしの情報</h3>
+  <table>
+    <tr>
+      <th>年齢</th>
+      <td>29才</td>
+    </tr>
+    <tr>
+      <th>都道府県</th>
+      <td>埼玉県</td>
+    </tr>
+  </table>
+
+  <h3>趣味</h3>
+  <ul>
+    <li>総合格闘技観戦</li>
+    <li>お笑い番組</li>
+    <li>ジョギング</li>
+  </ul>
+  <h3>好きな動画</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/LbPf1bmuDsk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <p id="display-area"></p>
+</body>
+<script type="text/javascript">
+  var game = {
+    startTime: null,
+    displayArea: document.getElementById("display-area"),
+    start: function(){
+      game.startTime = Date.now();
+      document.body.onkeypress = game.stop;
+    },
+    stop: function(){
+      var currentTime = Date.now();
+      var seconds = (currentTime - game.startTime) / 1000;
+      if (9.5 <= seconds && seconds <= 10.5){
+        game.displayArea.innerText = seconds + "秒でした。すごい";
+      }else{
+        game.displayArea.innerText = seconds + "秒でした。残念";
+      }
+    }
+  };
+
+  // if (confirm("OKを押して10秒だと思ったら何かキーを押してください")){
+  //   game.start();
+  // }
+</script>
+</html>
